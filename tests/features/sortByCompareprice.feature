@@ -10,6 +10,20 @@ Feature: Sort products by Compareprice
     And the response time should be below 1000 milliseconds
     And there should be at least 10 main categories
 
+  Scenario: Ascending compareprice
+    When I visit the endpoint "GET" "/api/c/{categoryUrlPart}?size=30&page=0&sort=compareprice-asc"
+    Then the status code of the response should be 200
+    And the response time should be below 1000 milliseconds
+    And there should be at least 1 product in the category
+    And the products sorted in order from "lowest" "comparePrice"
+
+  Scenario: Descending compareprice
+    When I visit the endpoint "GET" "/api/c/{categoryUrlPart}?size=30&page=0&sort=compareprice-desc"
+    Then the status code of the response should be 200
+    And the response time should be below 1000 milliseconds
+    And there should be at least 1 product in the category
+    And the products sorted in order from "highest" "comparePrice"
+
     # Use dynamic data (from a previous scenario) to run a scenario outline multiple times!
     # See the step definitions:
     # 1) Set an array of string values in your step definitions for

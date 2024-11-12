@@ -10,6 +10,13 @@ Feature: Testing pageSize
     And the response time should be below 1000 milliseconds
     And there should be at least 10 main categories
 
+  Scenario: PageSize
+    When I visit the endpoint "GET" "/api/c/{categoryUrlPart}?size=10&page=0&sort=topRated"
+    Then the status code of the response should be 200
+    And the response time should be below 1000 milliseconds
+    And there should be at least 1 product in the category
+    And the test should show that the "responsedata" is as most "pagesize"
+
     # Use dynamic data (from a previous scenario) to run a scenario outline multiple times!
     # See the step definitions:
     # 1) Set an array of string values in your step definitions for

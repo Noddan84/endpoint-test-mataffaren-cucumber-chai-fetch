@@ -10,6 +10,20 @@ Feature: Sort products by Name
     And the response time should be below 1000 milliseconds
     And there should be at least 10 main categories
 
+  Scenario: Name A-Ö
+    When I visit the endpoint "GET" "/api/c/{categoryUrlPart}?size=30&page=0&sort=name-asc"
+    Then the status code of the response should be 200
+    And the response time should be below 1000 milliseconds
+    And there should be at least 1 product in the category
+    And the products sorted in order from "A-Ö"
+
+  Scenario: Name Ö-A
+    When I visit the endpoint "GET" "/api/c/{categoryUrlPart}?size=30&page=0&sort=name-desc"
+    Then the status code of the response should be 200
+    And the response time should be below 1000 milliseconds
+    And there should be at least 1 product in the category
+    And the products sorted in order from "Ö-A"
+
     # Use dynamic data (from a previous scenario) to run a scenario outline multiple times!
     # See the step definitions:
     # 1) Set an array of string values in your step definitions for
