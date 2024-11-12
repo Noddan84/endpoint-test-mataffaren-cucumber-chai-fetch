@@ -1,5 +1,5 @@
 Feature: Sort products by Price
-  As a REST api user iw ant o be able to sort products by price and have the information be correct in all categories
+  As a REST api user i want to be able to sort products by price and have the information be correct in all categories
 
   Background:
     Given that I am on the domain "http://localhost:4000"
