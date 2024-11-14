@@ -8,9 +8,9 @@ Feature: Testing pageSize
     When I visit the endpoint "GET" "/api/leftMenu/categorytree"
     Then the status code of the response should be 200
     And the response time should be below 1000 milliseconds
-    And there should be at least 10 main categories
+    And there should be at least 500 categories
 
-  Scenario: PageSize
+  Scenario Outline: PageSize
     When I visit the endpoint "GET" "/api/c/{categoryUrlPart}?size=10&page=0&sort=topRated"
     Then the status code of the response should be 200
     And the response time should be below 1000 milliseconds
