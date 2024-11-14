@@ -11,7 +11,7 @@ Then('the products sorted in order from {string} {string}', async function(a, b)
   let sortOrder = a === "lowest" ? "compareprice-asc" : "compareprice-desc";
 
   // Kontrollera att rätt sorteringsalternativ är valt i responsen
-  let comparePriceSort = responseData.sorts.find(sort => sort.code === sortOrder);
+  let comparePriceSort = responseData.sorts.find(sort => sort.code === sortOrder); // error här
   expect(comparePriceSort).to.have.property("selected", true);
 
   // Extrahera jämförpriser från produktlistan och rensa bort " kr" och komma
