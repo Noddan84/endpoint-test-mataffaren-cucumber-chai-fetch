@@ -10,14 +10,14 @@ Feature: Sort products by Price
     And the response time should be below 1000 milliseconds
     And there should be at least 10 main categories
 
-  Scenario: Ascending price
+  Scenario Outline: Ascending price
     When I visit the endpoint "GET" "/api/c/{categoryUrlPart}?size=30&page=0&sort=price-asc"
     Then the status code of the response should be 200
     And the response time should be below 1000 milliseconds
     And there should be at least 1 product in the category
     And the products sorted in order from "lowest" "price"
 
-  Scenario: Descending price
+  Scenario Outline: Descending price
     When I visit the endpoint "GET" "/api/c/{categoryUrlPart}?size=30&page=0&sort=price-desc"
     Then the status code of the response should be 200
     And the response time should be below 1000 milliseconds
